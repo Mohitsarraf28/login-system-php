@@ -11,6 +11,7 @@ if (isset($_POST['login'])) {
     if ($result === "Login successful!") {
         $user = $userController->getUser();
         $_SESSION['username'] = $user->username;
+        $_SESSION['role'] = $user->role; // Ensure the role is stored in the session
         header("Location: dashboard.php");
     } else {
         echo $result;

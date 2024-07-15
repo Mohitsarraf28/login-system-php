@@ -13,9 +13,12 @@ class UserController {
         $this->user->username = $username;
         $this->user->email = $email;
         $this->user->password = $password;
+        $this->user->role='user';
 
         if ($this->user->register()) {
-            return "Registration successful!";
+            // Redirect to login page after successful registration
+            header("Location: login.php");
+            exit();
         } else {
             return "Registration failed.";
         }
